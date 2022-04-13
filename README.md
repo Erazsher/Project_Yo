@@ -1,8 +1,7 @@
 # Project_Yo
 
-A new Flutter project.
 
-## Getting Started
+## Learning programming with flutter
 
 :
 
