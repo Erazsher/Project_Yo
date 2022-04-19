@@ -58,14 +58,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: _widgetOptions.elementAt(_selectedIndex),
-          elevation: 12,
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(50),
-                  bottomLeft: Radius.circular(50),
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50)))),
+        title: _widgetOptions.elementAt(_selectedIndex),
+        // elevation: 12,
+        // shape: const RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.only(
+        //         bottomRight: Radius.circular(50),
+        //         bottomLeft: Radius.circular(50),
+        //         topLeft: Radius.circular(50),
+        //         topRight: Radius.circular(50)))
+      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
