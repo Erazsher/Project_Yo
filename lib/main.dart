@@ -89,7 +89,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_rounded),
             label: 'Profile',
-            backgroundColor: Colors.grey,
+            backgroundColor: Colors.blue,
           ),
         ],
         currentIndex: _selectedIndex,
