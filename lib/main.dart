@@ -27,13 +27,15 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
+  static final TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Home',
-      style: optionStyle,
-    ),
+  static final List<Widget> _widgetOptions = <Widget>[
+    TextButton(
+        onPressed: () {},
+        child: Text(
+          "Home",
+          style: optionStyle,
+        )),
     Text(
       'Search',
       style: optionStyle,
@@ -59,7 +61,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       appBar: AppBar(
         title: _widgetOptions.elementAt(_selectedIndex),
-        // elevation: 12,
+        // elevation: 10,
         // shape: const RoundedRectangleBorder(
         //     borderRadius: BorderRadius.only(
         //         bottomRight: Radius.circular(50),
