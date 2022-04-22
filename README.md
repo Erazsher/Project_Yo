@@ -3,6 +3,7 @@
 
 ## Learning programming with flutter
 adding basic ** UI templates **
+###USES [BSD license]{https://github.com/Erazsher/Project_Yo/blob/main/LICENSE}
 :
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
