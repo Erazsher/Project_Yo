@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text("Home"),
+          title: const Text("Search"),
         ),
         body: Center(
           child: TextButton(
             child: const Text(
-              "THis is Home",
+              "THis is Search",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             onPressed: () => {},

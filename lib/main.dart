@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
-void main() => runApp(const MyApp());
+import "notifi.dart";
+import "home.dart";
+import "search.dart";
+import "profile.dart";
+
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Home';
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Welcome to Flutter',
       home: MyStatefulWidget(),
     );
   }
@@ -26,52 +30,17 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static final TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static final List<Widget> _widgetOptions = <Widget>[
-    TextButton(
-        onPressed: () {},
-        child: Text(
-          "Home",
-          style: optionStyle,
-        )),
-    Text(
-      'Search',
-      style: optionStyle,
-    ),
-    Text(
-      'Notifications',
-      style: optionStyle,
-    ),
-    Text(
-      'Profile',
-      style: optionStyle,
-    ),
+  final _pageOptions = [
+    HomePage(),
+    SearchPage(),
+    NotificationPage(),
+    ProfilePage()
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: _widgetOptions.elementAt(_selectedIndex),
-        // elevation: 10,
-        // shape: const RoundedRectangleBorder(
-        //     borderRadius: BorderRadius.only(
-        //         bottomRight: Radius.circular(50),
-        //         bottomLeft: Radius.circular(50),
-        //         topLeft: Radius.circular(50),
-        //         topRight: Radius.circular(50)))
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: _pageOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -97,7 +66,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
-        onTap: _onItemTapped,
+        onTap: (index) => setState(() => _selectedIndex = index),
       ),
     );
   }
