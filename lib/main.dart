@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Welcome to Flutter',
-      home: MyStatefulWidget(),
+      home: const MyStatefulWidget(),
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
     );
