@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
         body: Center(
           child: TextButton(
             child: const Text(
-              "THis is Home",
+              "This is Home",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             onPressed: () => {},

@@ -8,7 +8,7 @@ class NotificationPage extends StatelessWidget {
         body: Center(
           child: TextButton(
             child: const Text(
-              "THis is notification",
+              "This is notification",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             onPressed: () => {},

@@ -8,7 +8,7 @@ class ProfilePage extends StatelessWidget {
         body: Center(
           child: TextButton(
             child: const Text(
-              "THis is Profile",
+              "This is Profile",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             onPressed: () => {},

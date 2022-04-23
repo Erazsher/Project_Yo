@@ -8,7 +8,7 @@ class SearchPage extends StatelessWidget {
         body: Center(
           child: TextButton(
             child: const Text(
-              "THis is Search",
+              "This is Search",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             onPressed: () => {},
