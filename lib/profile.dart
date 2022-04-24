@@ -19,12 +19,10 @@ class ProfilePage extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [
                 Image(
-                  height: MediaQuery.of(context).size.height / 3,
-                  width: MediaQuery.of(context).size.width,
-                  fit: BoxFit.fill,
-                  image: const NetworkImage(
-                      'https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG1vdW50YWluc3xlbnwwfHwwfHw%3D&w=1000&q=80'),
-                ),
+                    height: MediaQuery.of(context).size.height / 3,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.fill,
+                    image: AssetImage("assets/images/image3.jpg")),
                 const Positioned(
                     bottom: -50.0,
                     child: CircleAvatar(
