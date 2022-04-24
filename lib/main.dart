@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Welcome to Flutter',
       home: const MyStatefulWidget(),
       theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      // darkTheme: ThemeData.dark(),
     );
   }
 }
