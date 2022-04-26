@@ -39,11 +39,11 @@ class ProfilePage extends StatelessWidget {
             height: 40,
           ),
           ListTile(
-            title: Center(child: Text('Profile Name')),
-            subtitle: Center(child: Text('Place staying')),
+            title: Center(child: Text('Name')),
+            subtitle: Center(child: Text('Residence')),
           ),
           ListTile(
-            title: Text('Intrests'),
+            title: Text('Interests'),
             subtitle: Text('User can specify different intrests'),
           ),
           SizedBox(
