@@ -1,72 +1,45 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-  static const String _title = 'TEST';
-
+class SearchPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
-        body: const MyStatefulWidget(),
-      ),
-    );
-  }
+  _SearchPageState createState() => new _SearchPageState();
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
+class _SearchPageState extends State<SearchPage> {
+  Widget appBarTitle = new Text("Search Here.....!");
+  Icon actionIcon = new Icon(Icons.search);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(10),
-        child: ListView(
-          children: <Widget>[
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'ROOMMATE',
-                  style: TextStyle(
-                      //define textstyle
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 30),
-                )),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter your search query',
-                ),
-              ),
+    return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.green,
+          centerTitle: true,
+          title: appBarTitle,
+          actions: <Widget>[
+            IconButton(
+              icon: actionIcon,
+              onPressed: () {
+                setState(() {
+                  if (this.actionIcon.icon == Icons.search) {
+                    this.actionIcon = new Icon(Icons.close);
+                    this.appBarTitle = new TextField(
+                      style: new TextStyle(
+                        color: Colors.white,
+                      ),
+                      decoration: new InputDecoration(
+                          prefixIcon:
+                              new Icon(Icons.search, color: Colors.white),
+                          hintText: "Search...",
+                          hintStyle: new TextStyle(color: Colors.white)),
+                    );
+                  } else {
+                    this.actionIcon = new Icon(Icons.search);
+                    this.appBarTitle = new Text("Search Here....!");
+                  }
+                });
+              },
             ),
-            Container(
-                height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: ElevatedButton(
-                  child: const Text('search'),
-                  onPressed: () {
-                    debugPrint(nameController.text);
-                    debugPrint(passwordController.text);
-                  },
-                )),
-          ],
-        ));
+          ]),
+    );
   }
 }

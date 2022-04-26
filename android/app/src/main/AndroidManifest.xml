@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.app_ui">
+    package="com.example.roommate_app">
    <application
-        android:label="app_ui"
+        android:label="roommate_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
