@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import "search.dart";
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
@@ -17,6 +23,7 @@ class HomePage extends StatelessWidget {
           scrollDirection: Axis.vertical,
         ),
       );
+
   Widget BuildBasicCard() => Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
@@ -41,6 +48,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       );
+
   Widget BuildBasicCard2() => Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
@@ -65,6 +73,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       );
+
   Widget BuildBasicCard3() => Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
@@ -75,9 +84,12 @@ class HomePage extends StatelessWidget {
               image: const AssetImage("assets/images/image4.jpg"),
               height: 240,
               fit: BoxFit.cover,
-              child: InkWell(
-                onTap: () {},
-              ),
+              child: InkWell(onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchPage()),
+                );
+              }),
             ),
             const Text(
               "Search A Room",
@@ -89,6 +101,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       );
+
   Widget BuildBasicCard4() => Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),

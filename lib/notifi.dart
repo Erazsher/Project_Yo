@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:roommate_app/home.dart';
 
-class NotificationPage extends StatelessWidget {
+class NotificationPage extends StatefulWidget {
+  @override
+  State<NotificationPage> createState() => _NotificationPageState();
+}
+
+class _NotificationPageState extends State<NotificationPage> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
@@ -19,6 +24,7 @@ class NotificationPage extends StatelessWidget {
           ],
         ),
       ));
+
   Widget NotificationWidigit() => ListTile(
         onTap: (() {}),
         contentPadding: EdgeInsets.all(16),

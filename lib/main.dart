@@ -6,6 +6,7 @@ import "notifi.dart";
 import "home.dart";
 import "search.dart";
 import "profile.dart";
+import 'loginpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,9 +45,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     HomePage(),
     SearchPage(),
     NotificationPage(),
-    ProfilePage()
+    ProfilePage(),
+    LoginPage()
   ];
-  int _selectedIndex = 0;
+  int _selectedIndex = 4;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,6 +69,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             icon: Icon(Icons.notifications),
             label: 'Notifications',
             backgroundColor: Colors.purple,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_rounded),
+            label: 'Profile',
+            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_rounded),
