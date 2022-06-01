@@ -38,6 +38,8 @@ dependencies:
   animated_splash_screen: ^1.2.0
   firebase_core: ^1.17.1
   firebase_auth: ^3.3.19
+  shared_preferences: ^2.0.15
+  flutter_secure_storage: ^5.0.2
 
 dev_dependencies:
   flutter_test:

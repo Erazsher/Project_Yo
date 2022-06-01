@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "search.dart";
+import 'package:roommate_app/utils/color_utils.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,12 +9,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: const Text("Home"),
-        ),
-        // body: const MyStatelessWidget());
-        body: ListView(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: const Text("Home"),
+      ),
+      // body: const MyStatelessWidget());
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+          hexStringToColor("587F0E"),
+          hexStringToColor("02C4C4"),
+          hexStringToColor("095B7C")
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        child: ListView(
           children: <Widget>[
             BuildBasicCard(),
             BuildBasicCard2(),
@@ -22,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           ],
           scrollDirection: Axis.vertical,
         ),
-      );
+      ));
 
   Widget BuildBasicCard() => Card(
         clipBehavior: Clip.antiAlias,

@@ -4,6 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 import 'screens/loginpage.dart';
+import 'utils/color_utils.dart';
+
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +31,6 @@ class MyApp extends StatelessWidget {
             nextScreen: const LoginPage(),
             splashTransition: SplashTransition.fadeTransition,
             // pageTransitionType: PageTransitionType.scale,
-            backgroundColor: Colors.black));
+            backgroundColor: Colors.redAccent));
   }
 }
