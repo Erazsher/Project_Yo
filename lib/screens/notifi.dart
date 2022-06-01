@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roommate_app/home.dart';
+import 'package:roommate_app/screens/home.dart';
 
 class NotificationPage extends StatefulWidget {
   @override
