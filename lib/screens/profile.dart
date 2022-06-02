@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key, String? title}) : super(key: key);
@@ -9,6 +11,51 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  dynamic username = "";
+  dynamic uerpalce = "";
+  dynamic userPhone = "";
+  dynamic userDOB = "";
+  // late File _proPic;
+
+  Future uploadPic() async {
+    print("ot");
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    fetchPrfileInfo();
+  }
+
+  Future fetchPrfileInfo() async {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+
+    final CollectionReference userData =
+        FirebaseFirestore.instance.collection('UserData');
+
+    await userData
+        .doc(auth.currentUser?.uid)
+        .get()
+        .then((DocumentSnapshot docSnap) {
+      if (docSnap.exists) {
+        Map<String, dynamic> vlaues = docSnap.data() as Map<String, dynamic>;
+        String crrusername = vlaues["username"].toString();
+        String crruerpalce = vlaues["place"].toString();
+        String crrphnum = vlaues["phone"];
+        String crrDOB = vlaues["DOB"];
+
+        // String crr_usr=
+        setState(() {
+          username = crrusername;
+          uerpalce = crruerpalce;
+          userPhone = crrphnum;
+          userDOB = crrDOB;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,39 +76,44 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: MediaQuery.of(context).size.width,
                     fit: BoxFit.fill,
                     image: AssetImage("assets/images/image3.jpg")),
-                const Positioned(
-                    bottom: -50.0,
+                Positioned(
+                    bottom: -40.0,
                     child: CircleAvatar(
                       radius: 60,
                       backgroundColor: Colors.blue,
                       child: CircleAvatar(
-                        radius: 55,
-                        backgroundImage:
-                            AssetImage("assets/images/profile.png"),
-                      ),
+                          radius: 55,
+                          child: Image.network(
+                            "https://static.vecteezy.com/system/resources/thumbnails/001/912/631/small_2x/beautiful-woman-in-frame-circular-avatar-character-free-vector.jpg",
+                            fit: BoxFit.fill,
+                          )),
                     ))
               ]),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
-          ListTile(
-            title: Center(child: Text('Name')),
-            subtitle: Center(child: Text('Residence')),
+          Container(
+            child: IconButton(
+              icon: Icon(FontAwesomeIcons.camera),
+              onPressed: () {
+                uploadPic();
+              },
+            ),
           ),
           ListTile(
-            title: Text('Interests'),
-            subtitle: Text('User can specify different intrests'),
+            title: Center(
+                child: Text(
+              username.toString(),
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 30),
+            )),
+            subtitle: Center(child: Text(uerpalce.toString())),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          // ListTile(
-          //   title: Text('Education'),
-          //   subtitle: Text(
-          //       'Higher Institute of Computer Science and Multimedia of Sfax '),
-          // ),
-          SizedBox(
-            height: 20,
+          ListTile(
+            title: Text(userPhone),
+            subtitle: Text(userDOB),
           ),
           ListTile(
             title: Text('Social'),
