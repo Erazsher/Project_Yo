@@ -1,3 +1,5 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,6 +8,7 @@ import 'package:roommate_app/utils/color_utils.dart';
 import 'package:roommate_app/screens/basepage.dart';
 import "singup.dart";
 import "reset_password.dart";
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,6 +20,27 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
+
+  Future storedata(value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('uid', value.user!.uid);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    check_if_already_login();
+  }
+
+  void check_if_already_login() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool userStatus = prefs.containsKey('uid');
+    if (userStatus == true) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const BasePage()));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,8 +80,11 @@ class _LoginPageState extends State<LoginPage> {
                           email: _emailTextController.text,
                           password: _passwordTextController.text)
                       .then((value) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => BasePage()));
+                    storedata(value);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BasePage()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });
