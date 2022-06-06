@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:roommate_app/screens/basepage.dart';
+// import 'package:roommate_app/screens/basepage.dart';
 // import 'package:roommate_app/screens/home.dart';
 
 import 'screens/loginpage.dart';
-import 'utils/color_utils.dart';
+// import 'utils/color_utils.dart';
 
 // import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 

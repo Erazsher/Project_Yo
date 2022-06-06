@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roommate_app/screens/setuparoom.dart';
 import "search.dart";
 import 'package:roommate_app/utils/color_utils.dart';
 
@@ -43,7 +44,12 @@ class _HomePageState extends State<HomePage> {
               height: 240,
               fit: BoxFit.cover,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const RoomSetup()),
+                  );
+                },
               ),
             ),
             const Text(

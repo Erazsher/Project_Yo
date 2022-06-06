@@ -166,7 +166,38 @@ class _ProfilePageState extends State<ProfilePage> {
             iconColor: Colors.amber,
             subtitle: Text("Date Of Birth " + userDOB),
           ),
-
+          ListTile(
+            title: const Text(
+              'Social',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            subtitle: Row(
+              children: [
+                Expanded(
+                  child: IconButton(
+                      icon: FaIcon(
+                        FontAwesomeIcons.github,
+                      ),
+                      onPressed: () {}),
+                ),
+                Expanded(
+                  child: IconButton(
+                      icon: FaIcon(FontAwesomeIcons.linkedin),
+                      onPressed: () {}),
+                ),
+                Expanded(
+                  child: IconButton(
+                      icon: FaIcon(FontAwesomeIcons.facebook),
+                      onPressed: () {}),
+                ),
+                Expanded(
+                  child: IconButton(
+                      icon: FaIcon(FontAwesomeIcons.instagram),
+                      onPressed: () {}),
+                ),
+              ],
+            ),
+          ),
           ListTile(
             title: const Text(
               'Social',
