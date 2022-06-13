@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:roommate_app/reuse/reusable_widget.dart';
 import 'package:roommate_app/utils/color_utils.dart';
 import "package:roommate_app/utils/citynames.dart";
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 // import 'package:lottie/lottie.dart';
 import 'roomAddedanim.dart';
@@ -17,6 +19,7 @@ class _RoomSetupState extends State<RoomSetup> {
   TextEditingController _roomName = TextEditingController();
   TextEditingController _roomPlace = TextEditingController();
   TextEditingController _roomAddress = TextEditingController();
+  TextEditingController _roomPrice = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +54,36 @@ class _RoomSetupState extends State<RoomSetup> {
                       const SizedBox(
                         height: 10,
                       ),
+                      reusableTextField(
+                          "Price", Icons.money, false, _roomPrice),
                       TextButton(
-                          onPressed: () {
+                          onPressed: () async {
+                            FirebaseAuth auth = FirebaseAuth.instance;
+                            final CollectionReference userData =
+                                FirebaseFirestore.instance
+                                    .collection('UserData');
+                            await userData
+                                .doc(auth.currentUser?.uid)
+                                .get()
+                                .then((DocumentSnapshot docSnap) {
+                              if (docSnap.exists) {
+                                Map<String, dynamic> vlaues =
+                                    docSnap.data() as Map<String, dynamic>;
+                                String curr_username = vlaues["username"];
+                                String _docname = auth.currentUser!.uid;
+                                FirebaseFirestore.instance
+                                    .collection('RoomData')
+                                    .doc(_docname + _roomName.text)
+                                    .set({
+                                  "roomName": _roomName.text,
+                                  "roomPlace": _roomPlace.text,
+                                  "roomAddress": _roomAddress.text,
+                                  "hostedBy": curr_username,
+                                  "RoomPrice": _roomPrice.text
+                                });
+                              }
+                            });
+
                             Navigator.pushReplacement<void, void>(
                               context,
                               MaterialPageRoute<void>(
