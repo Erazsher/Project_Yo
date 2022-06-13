@@ -121,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     isDateSelected
                         ? DateFormat.yMMMd().format(birthDate)
                         : initValue,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   )
                 ]),
                 const SizedBox(
