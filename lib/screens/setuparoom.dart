@@ -77,6 +77,7 @@ class _RoomSetupState extends State<RoomSetup> {
                                     .set({
                                   "roomName": _roomName.text,
                                   "roomPlace": _roomPlace.text,
+                                  "roomPlacekey": _roomPlace.text[0],
                                   "roomAddress": _roomAddress.text,
                                   "hostedBy": curr_username,
                                   "RoomPrice": _roomPrice.text
