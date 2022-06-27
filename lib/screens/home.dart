@@ -26,9 +26,10 @@ class _HomePageState extends State<HomePage> {
         child: ListView(
           children: <Widget>[
             BuildBasicCard(),
-            BuildBasicCard2(),
+            const SizedBox(
+              height: 30,
+            ),
             BuildBasicCard3(),
-            BuildBasicCard4()
           ],
           scrollDirection: Axis.vertical,
         ),
@@ -64,31 +65,6 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
-  Widget BuildBasicCard2() => Card(
-        clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Ink.image(
-              image: const AssetImage("assets/images/card.jpg"),
-              height: 240,
-              fit: BoxFit.cover,
-              child: InkWell(
-                onTap: () {},
-              ),
-            ),
-            const Text(
-              "Join A Room",
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            )
-          ],
-        ),
-      );
-
   Widget BuildBasicCard3() => Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
@@ -108,31 +84,6 @@ class _HomePageState extends State<HomePage> {
             ),
             const Text(
               "Search A Room",
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            )
-          ],
-        ),
-      );
-
-  Widget BuildBasicCard4() => Card(
-        clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Ink.image(
-              image: const AssetImage("assets/images/card.jpg"),
-              height: 240,
-              fit: BoxFit.cover,
-              child: InkWell(
-                onTap: () {},
-              ),
-            ),
-            const Text(
-              "Rent A Room",
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,

@@ -22,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
   // final File _proPic = File("");
 
   Future uploadPic() async {
-    print("ot");
+    // print("ot");
   }
 
   @override
@@ -74,81 +74,9 @@ class _ProfilePageState extends State<ProfilePage> {
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          // Stack(
-          //     clipBehavior: Clip.none,
-          //     alignment: Alignment.bottomCenter,
-          //     children: [
-          //       Image(
-          //           height: MediaQuery.of(context).size.height / 3,
-          //           width: MediaQuery.of(context).size.width,
-          //           fit: BoxFit.fill,
-          //           image: AssetImage("assets/images/image3.jpg")),
-          //       Positioned(
-          //           bottom: -40.0,
-          //           child: CircleAvatar(
-          //             radius: 60,
-          //             backgroundColor: Colors.blue,
-          //             child: CircleAvatar(
-          //                 radius: 55,
-          //                 child: Image.network(
-          //                   "https://static.vecteezy.com/system/resources/thumbnails/001/912/631/small_2x/beautiful-woman-in-frame-circular-avatar-character-free-vector.jpg",
-          //                   fit: BoxFit.fill,
-          //                 )),
-          //           ))
-          //     ]),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: <Widget>[
-          //     Align(
-          //       alignment: Alignment.center,
-          //       child: CircleAvatar(
-          //         radius: 100,
-          //         backgroundColor: Color(0xff476cfb),
-          //         child: ClipOval(
-          //           child: new SizedBox(
-          //             width: 180.0,
-          //             height: 180.0,
-          //             child: (_proPic != null)
-          //                 ? Image.file(
-          //                     _proPic,
-          //                     fit: BoxFit.fill,
-          //                   )
-          //                 : Image.network(
-          //                     "https://images.unsplash.com/photo-1502164980785-f8aa41d53611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-          //                     fit: BoxFit.fill,
-          //                   ),
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //     Padding(
-          //       padding: EdgeInsets.only(top: 60.0),
-          //       child: IconButton(
-          //         icon: Icon(
-          //           FontAwesomeIcons.camera,
-          //           size: 30.0,
-          //         ),
-          //         onPressed: () {
-          //           uploadPic();
-          //         },
-          //       ),
-          //     ),
-          //   ],
-          // ),
-          SizedBox(
+          const SizedBox(
             height: 100,
           ),
-          // const SizedBox(
-          //   height: 40,
-          // ),
-          // Container(
-          //   child: IconButton(
-          //     icon: Icon(FontAwesomeIcons.camera),
-          //     onPressed: () {
-          //       uploadPic();
-          //     },
-          //   ),
-          // ),
           ListTile(
             title: Center(
                 child: Text(

@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'searchservice.dart';
 import 'package:get/get.dart';
+import 'view_room.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -20,7 +21,14 @@ class _SearchPageState extends State<SearchPage> {
           itemBuilder: ((context, int index) {
             return GestureDetector(
               onTap: () {
-                print("object");
+                String roomidtopass =
+                    snapshotData.docs[index]["room_id"].toString();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ViewRoom(
+                              roomid: roomidtopass,
+                            )));
               },
               child: ListTile(
                 title: Text(
@@ -48,19 +56,6 @@ class _SearchPageState extends State<SearchPage> {
           GetBuilder<SearchService>(
             init: SearchService(),
             builder: (val) {
-              // return IconButton(
-              //     onPressed: () {
-              //       String searchterm = seach_contro.text;
-              //       searchterm =
-              //           searchterm[0].toUpperCase() + searchterm.substring(1);
-              //       val.queryData(searchterm).then((value) {
-              //         snapshotData = value;
-              //         setState(() {
-              //           is_exicuted = true;
-              //         });
-              //       });
-              //     },
-              //     icon: const Icon(Icons.search));
               return Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(13.0),
@@ -81,25 +76,22 @@ class _SearchPageState extends State<SearchPage> {
                     style: const TextStyle(color: Colors.white),
                     controller: seach_contro,
                     decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(left: 25.0),
-                        hintText: 'Search by name',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(1.0))),
+                      labelStyle:
+                          TextStyle(color: Colors.white.withOpacity(0.9)),
+                      filled: true,
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      fillColor: Colors.white.withOpacity(0.3),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          borderSide: const BorderSide(
+                              width: 0, style: BorderStyle.none)),
+                    ),
                   ),
                 ),
               );
             },
           )
         ],
-        // title: TextField(
-        //   style: TextStyle(color: Colors.white),
-        //   controller: seach_contro,
-        //   decoration: InputDecoration(
-        //       contentPadding: EdgeInsets.only(left: 25.0),
-        //       hintText: 'Search by name',
-        //       border:
-        //           OutlineInputBorder(borderRadius: BorderRadius.circular(4.0))),
-        // ),
       ),
       body: is_exicuted
           ? searchdData()
