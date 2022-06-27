@@ -36,7 +36,7 @@ class _BasePageState extends State<BasePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.red,
+            backgroundColor: Color.fromARGB(255, 28, 55, 95),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),

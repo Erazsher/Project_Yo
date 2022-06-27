@@ -11,17 +11,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Color.fromARGB(255, 28, 55, 95),
         title: const Text("Home"),
       ),
       // body: const MyStatelessWidget());
       body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          hexStringToColor("587F0E"),
-          hexStringToColor("02C4C4"),
-          hexStringToColor("095B7C")
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        color: Color.fromARGB(255, 28, 55, 95),
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(colors: [
+        //   hexStringToColor("587F0E"),
+        //   hexStringToColor("02C4C4"),
+        //   hexStringToColor("095B7C")
+        // ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: ListView(
           children: <Widget>[
             BuildBasicCard(),
@@ -40,7 +41,7 @@ class _HomePageState extends State<HomePage> {
           alignment: Alignment.center,
           children: [
             Ink.image(
-              image: const AssetImage("assets/images/image.jpg"),
+              image: const AssetImage("assets/images/card.jpg"),
               height: 240,
               fit: BoxFit.cover,
               child: InkWell(
@@ -70,7 +71,7 @@ class _HomePageState extends State<HomePage> {
           alignment: Alignment.center,
           children: [
             Ink.image(
-              image: const AssetImage("assets/images/image2.jpg"),
+              image: const AssetImage("assets/images/card.jpg"),
               height: 240,
               fit: BoxFit.cover,
               child: InkWell(
@@ -95,7 +96,7 @@ class _HomePageState extends State<HomePage> {
           alignment: Alignment.center,
           children: [
             Ink.image(
-              image: const AssetImage("assets/images/image4.jpg"),
+              image: const AssetImage("assets/images/card.jpg"),
               height: 240,
               fit: BoxFit.cover,
               child: InkWell(onTap: () {
@@ -123,7 +124,7 @@ class _HomePageState extends State<HomePage> {
           alignment: Alignment.center,
           children: [
             Ink.image(
-              image: const AssetImage("assets/images/image3.jpg"),
+              image: const AssetImage("assets/images/card.jpg"),
               height: 240,
               fit: BoxFit.cover,
               child: InkWell(
