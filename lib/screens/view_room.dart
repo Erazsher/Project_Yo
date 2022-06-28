@@ -20,6 +20,7 @@ class _ViewRoomState extends State<ViewRoom> {
   dynamic room_addres = "";
   dynamic room_hsotedby = "";
   dynamic room_place = "";
+  dynamic room_host_usrid = "";
 
   @override
   void initState() {
@@ -39,6 +40,13 @@ class _ViewRoomState extends State<ViewRoom> {
         {"status": "requested"},
       ],
     });
+    final CollectionReference Notify =
+        FirebaseFirestore.instance.collection("NotifStack");
+    await Notify.doc(room_host_usrid).set({
+      "roomid": widget.roomid,
+      "requestedby": auth.currentUser?.uid,
+      "status": 0
+    });
   }
 
   @override
@@ -54,6 +62,7 @@ class _ViewRoomState extends State<ViewRoom> {
         String crrroomprice = vlaues["RoomPrice"].toString();
         String crrroAddr = vlaues["roomAddress"].toString();
         String crrroomhost = vlaues["hostedBy"].toString();
+        String crr_rmhosted_id = vlaues["hosted_usrid"].toString();
 
         // print(vlaues["roomPrice"].toString());
         setState(() {
@@ -62,6 +71,7 @@ class _ViewRoomState extends State<ViewRoom> {
           room_price = crrroomprice;
           room_name = crrrroomname;
           room_addres = crrroAddr;
+          room_host_usrid = crr_rmhosted_id;
         });
       }
     });
