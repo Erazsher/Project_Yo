@@ -82,14 +82,16 @@ Container firebaseUIButton(BuildContext context, String title, Function onTap) {
       child: Text(
         title,
         style: const TextStyle(
-            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
+            color: Color.fromARGB(221, 233, 231, 231),
+            fontWeight: FontWeight.bold,
+            fontSize: 16),
       ),
       style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.pressed)) {
               return Colors.black26;
             }
-            return Colors.white;
+            return Color.fromARGB(255, 23, 117, 218);
           }),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),

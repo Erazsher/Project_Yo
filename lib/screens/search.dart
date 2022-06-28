@@ -32,14 +32,14 @@ class _SearchPageState extends State<SearchPage> {
               },
               child: ListTile(
                 title: Text(
-                  snapshotData.docs[index]["roomPlace"].toString(),
+                  snapshotData.docs[index]["roomName"].toString(),
                   style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 24.0),
                 ),
                 subtitle: Text(
-                  snapshotData.docs[index]["roomName"].toString(),
+                  snapshotData.docs[index]["roomPlace"].toString(),
                   style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.normal,
